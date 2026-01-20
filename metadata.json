@@ -1,0 +1,5 @@
+{
+  "name": "Resume Architect",
+  "description": "A specialized tool to generate high-precision AI prompts for tailoring LaTeX resumes to specific Job Descriptions.",
+  "requestFramePermissions": []
+}
