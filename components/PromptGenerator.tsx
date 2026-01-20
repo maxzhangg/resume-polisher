@@ -18,24 +18,24 @@ const PromptGenerator: React.FC = () => {
 ${PROMPT_INSTRUCTIONS}
 
 # Input Data
-1. **Target JD**:
+
+## 1. Target JD
 """
 ${jd}
 """
 
-2. **User Requirements** (Extra instructions from me):
+## 2. User Requirements
 """
-${requirements ? requirements : "No additional specific requirements. Please follow the core mission."}
+${requirements ? requirements : "No specific requirements. Please follow the core mission."}
 """
 
-3. **Master Resume Code**:
+## 3. Master Resume Code
 """
 ${MASTER_RESUME_LATEX}
 """
 
-# Output
-请在一个代码块中输出**修改后的、完整的、可编译的** LaTeX 源代码。########################################%以下是我的简历母版 告诉我需要改什么删什么 如何让简历贴近jd 不许编我没做过的 不可以对latex格式进行任何改动 需要缩到一页 告诉我改完是什么样子 最后给我改完的latex代码
-%###########################################
+# Execution Instructions
+Please generate the response following the structure defined in "Output" or "PART A/B". Ensure both the Resume and Cover Letter are provided.
     `.trim();
 
     setGeneratedPrompt(finalOutput);
@@ -178,7 +178,7 @@ ${MASTER_RESUME_LATEX}
                 <div className="flex items-start gap-3 text-sm text-slate-400">
                     <AlertCircle className="w-5 h-5 text-indigo-400 shrink-0 mt-0.5" />
                     <p>
-                        <span className="text-slate-200 font-medium">Next Step:</span> Copy this entire block and paste it into <span className="text-white">ChatGPT (o1/4o)</span>, <span className="text-white">DeepSeek</span>, or <span className="text-white">Gemini 1.5 Pro</span>. The model will output the refined LaTeX code for your resume.
+                        <span className="text-slate-200 font-medium">Next Step:</span> Copy this prompt into <span className="text-white">ChatGPT (o1/4o)</span> or <span className="text-white">DeepSeek</span>. The model will output both your <span className="text-white font-medium">Resume (Part A)</span> and <span className="text-white font-medium">Cover Letter (Part B)</span>.
                     </p>
                 </div>
             </div>

@@ -7,36 +7,106 @@ export const PROMPT_INSTRUCTIONS = String.raw`# Role
 输入：
 1. **Target JD** (目标职位描述)。
 2. **User Requirements** (求职者的额外要求)。
-3. **Master Resume Code** (包含我所有经历的 LaTeX 源代码)。
+3. **Master Resume Code** (包含我所有经历的 LaTeX 源代码，这是唯一的“事实数据库”)。
 
-你的任务是利用你的招聘经验，从我的代码库中“组装”出一份**针对该职位**的 1 页简历。
+你的任务是利用你的招聘经验，为我生成两份文件：
+1. 一份**针对该职位**的 1 页简历（Resume）。
+2. 一份配套的求职信（Cover Letter）。
 
-# 核心任务 (The Mission)
+---
+
+# 🚀 PART A: Resume Optimization (简历优化)
 
 ## 1. 布局策略 (Layout Strategy) -> "Perfect Fit"
 - **目标**: 输出内容必须**完美填充 1 页 A4 纸**。
-- **实习经历 (Internship)**: 【🚫绝对禁止修改】保留所有实习经历的代码块，**不要改动文字**，这是简历的骨架。
+- **实习经历 (Internship)**: 【🚫绝对禁止修改】保留所有实习经历的代码块（包括标题、时间、描述），**一字不改**。
 - **教育经历 (Education)**: 【🚫绝对禁止修改】保留学校、学位、时间等信息，不要删减。
 - **项目经历 (Projects)**: 【🎯锁定 3 个】
   - 根据 JD 的核心需求，挑选出 **3 个** 最相关的项目。
   - **其余项目全部删除**。
-  - 这 3 个项目将作为支撑你能力的支柱。
 
-## 2. 内容优化 (Content Optimization) -> "High Impact"
-- 对选中的这 3 个项目进行**基于事实的润色**（只修改 \`{}\` 内的文本）：
-  - **关键词对齐**: 参考 JD 中的技术名词和动词。
-  - **精准修辞**: 使用强有力的动词开头（Developed, Architected, Spearheaded），去除废话。
+## 2. 内容优化 (Content Optimization) -> "Description Only"
+你对选中的 3 个项目拥有“部分编辑权”，请严格遵守以下红线：
+- **❌ 禁止修改 (DO NOT TOUCH):**
+  - **项目名称 (Project Title)**: 必须保持原样。
+  - **项目时间/链接**: 必须保持原样。
+  - **技术栈列表**: 如果项目标题旁有列出具体的 Tech Stack，尽量保持原样，除非为了省空间需要微调。
+- **✅ 允许优化 (OPTIMIZE THIS):**
+  - 仅限 **\`\resumeItem{...}\` 内部的描述性文字**。
+  - **关键词对齐**: 将描述中的动词和名词向 JD 靠拢。
+  - **精准修辞**: 使用强有力的动词开头（Developed, Architected, Spearheaded）。
   - **拒绝瞎编**: 优化表达，但严禁捏造事实。
 
-## 3. 代码安全 (Code Safety) -> "Don't Break It"
-- **容器保护**: 严禁修改 LaTeX 的结构命令（如 \`\resumeProjectHeading\`, \`\resumeItem\`, \`\section\` 等）。
-- **符号转义**: 重写文本时，务必检查特殊字符（\`&\`, \`%\`, \`_\`, \`$\`, \`#\`），必须加反斜杠转义（如 \`\&\`）。
-- **编译检查**: 确保所有花括号 \`{}\` 严格闭合。
+## 3. 代码安全 (Code Safety)
+- **容器保护**: 严禁修改 LaTeX 的结构命令。
+- **符号转义**: 检查 \`&\`, \`%\`, \`_\`, \`$\`, \`#\`，必须加反斜杠转义（如 \`\&\`）。
+- **编译检查**: 确保花括号 \`{}\` 闭合。
 
 ## 4. 空间微调 (Space Management)
-- 如果 **实习 + 3个项目** 导致内容略微超出一页，请按以下顺序进行缩减：
+- 如果 **实习 + 3个项目** 导致内容略微超出一页：
   1. **精简 Skills 部分**: 仅保留与 JD 高度相关的技能关键词，删除次要技能。
-  2. **精简项目描述**: 在不减少项目数量（保持3个）的前提下，缩短每个 bullet point 的句子长度，去除冗余修饰词。`;
+  2. **精简项目描述**: 在不减少项目数量（保持3个）的前提下，缩短 \`\resumeItem\` 的句子长度。
+
+---
+
+# ✉️ PART B: Cover Letter Generation (求职信生成)
+
+请根据 JD 和 简历，撰写一封求职信，并**严格套用**以下的 Deedy 模板格式输出。
+
+## 1. Deedy 模板规范 (Template Rules)
+- **头部 (Header)**: 保持与 Resume 一致的 \`\namesection{Max}{Zhang}{...}\` 信息。
+- **公司信息**: 
+  - 找到 \`\companyname{...}\`，填入 JD 中的公司名称。
+  - 找到 \`\companyaddress{...}\`，填入 JD 中的地址/Hiring Team。
+  - 找到 \`\currentdate{...}\`，填入 \`\today\`。
+- **正文格式**: 
+  - **必须**使用 \`\lettercontent{...}\` 包裹每一段落。
+  - 例如：\`\lettercontent{First paragraph text...}\`。
+  - **不要**使用普通文本段落，否则格式会错乱。
+
+## 2. 内容撰写策略 (Content Strategy)
+- **真实性原则**: 只能引用 Resume 中的经历。**严禁瞎编**我没做过的技能或数据。
+- **第一段**: 明确提及申请的职位名称（从 JD 获取）和公司名称。
+- **中间段**: 挑选 Resume 中 **最匹配 JD 的 2 个亮点**（项目或实习）进行展开。解释这些经历如何让我胜任该职位。
+- **结尾**: 表达对面试的期待。
+
+## 3. Cover Letter 代码骨架 (Skeleton)
+请基于此结构填充内容：
+\`\`\`latex
+\documentclass[]{cover}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\rfoot{Page \thepage \hspace{1pt}}
+\thispagestyle{empty}
+\renewcommand{\headrulewidth}{0pt}
+\begin{document}
+\enlargethispage{3\baselineskip}
+
+% 保持个人信息与简历一致
+\namesection{Max}{Zhang}{ [保留简历中的链接和邮箱信息] }
+
+\hfill
+
+\begin{minipage}[t]{0.5\textwidth} 
+\companyname{[AI: 填入公司名]}
+\companyaddress{[AI: 填入地址]}
+\end{minipage}
+\begin{minipage}[t]{0.49\textwidth} 
+\currentdate{\today}
+\end{minipage}
+
+\lettercontent{Dear Hiring Manager,}
+
+\lettercontent{[AI: 第一段 - 申请职位与热情]}
+\lettercontent{[AI: 第二段 - 核心匹配经历1]}
+\lettercontent{[AI: 第三段 - 核心匹配经历2]}
+\lettercontent{[AI: 结尾段 - 期待面试]}
+
+\vspace{0.2cm}
+\closing{Sincerely,\\ \vspace{.1cm} Max Zhang }
+\end{document}
+\`\`\``;
 
 export const MASTER_RESUME_LATEX = String.raw`%-------------------------
 % Resume in Latex
@@ -338,7 +408,7 @@ Attention to Detail} \\
     \resumeItemListEnd
     
   %  \vspace{-3.0mm}
-\vspace{-4mm}
+\vspace{-8mm}
 
 
 
