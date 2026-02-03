@@ -108,7 +108,11 @@ export const PROMPT_INSTRUCTIONS = String.raw`# Role
 \end{document}
 \`\`\``;
 
-export const MASTER_RESUME_LATEX = String.raw`%-------------------------
+export const MASTER_RESUME_LATEX = String.raw`%以下是我的简历母版 告诉我需要改什么删什么 如何让简历贴近jd 不许编我没做过的 不可以对latex格式进行任何改动 需要缩到一页 告诉我改完是什么样子 最后给我改完的latex代码
+%###########################################
+
+
+%-------------------------
 % Resume in Latex
 % Author
 % License : MIT
@@ -394,9 +398,19 @@ Attention to Detail} \\
 %-----------EXPERIENCE-----------------
 \section{\textbf{Experience}}
   \resumeSubHeadingListStart
+  \resumeSubheading
+      {Night-time Technical Support}{Remote}
+      {\href{https://github.com/CasualHackathon/SPARK-AI-Hackathon}{SPARK AI Hackathon}}{Jan 2026 - Feb 2026}
+      \vspace{-2.0mm}
+      \resumeItemListStart
+        \item Debugged and fixed issues in the automated registration script to ensure smooth participant onboarding
+        \item Assisted participants in resolving problems encountered during registration and project submission workflows
+        \item Provided timely technical support to unblock participants under tight hackathon timelines
+      \resumeItemListEnd
+      \vspace{-3mm}
     \resumeSubheading
       {Service Router Test Platform Dev Student}{Ottawa}
-      {Nokia}{Apr 2024 - Dec 2024}
+      {\href{https://www.nokia.com/}{Nokia}}{Apr 2024 - Dec 2024}
       \vspace{-2.0mm}
       \resumeItemListStart
     \item Assisted Ethernet and Optical teams to validate new hardware and software in a Linux-based regression environment on the Service Router platform.
@@ -408,7 +422,7 @@ Attention to Detail} \\
     \resumeItemListEnd
     
   %  \vspace{-3.0mm}
-\vspace{-8mm}
+\vspace{-4mm}
 
 
 
@@ -419,7 +433,22 @@ Attention to Detail} \\
 \vspace{-2mm}
 \resumeSubHeadingListStart
 \resumeProject
-  {WeOrganizer: AI-Driven B2B Content Aggregation Platform (Architecture \& Design)} 
+  {\href{https://github.com/maxzhangg/Oracle-s-Choice}{Oracle's Choice: SpoonOS Graph Agent–Powered Dual-Mode Oracle Application}} 
+  {Designed an explainable AI agent system supporting empathetic chat and deterministic divination workflows.}
+  {2026.01}
+  {} 
+\resumeItemListStart
+\item Architected a \textbf{SpoonOS Graph Agent} workflow (\textit{parse → route → divination → narration → persist}) to support \textbf{dual interaction modes}, enabling seamless switching between contextual chat and forced divination.
+\item Designed \textbf{LLM-driven intent parsing and routing logic} to classify user intent, domain, and tone, dynamically selecting tools (chat, tarot, lenormand, liuyao) with \textbf{rule-based fallbacks} for robustness.
+\item Implemented \textbf{deterministic local divination engines} using session-scoped seeds, ensuring reproducible readings while decoupling symbolic logic from LLM generation.
+\item Engineered a \textbf{multi-provider LLM fallback mechanism} (Gemini → OpenAI), abstracting model access through a unified client to improve reliability under rate limits.
+\item Designed \textbf{transparent agent trace schemas} and persistence logic, exposing the full \textbf{Input → Processing → Output} decision path to the frontend for explainability and user trust.
+\item Translated product goals around emotional support and ritual-based interaction into concrete \textbf{technical requirements and agent behaviors}, aligning UX intent with system feasibility.
+\resumeItemListEnd
+\vspace{-1mm}
+
+\resumeProject
+  {\href{https://aistudio.google.com/apps/drive/1qK1Q2xgsjRjdyWyPRFvbSJ1XNgf4iD1I}{WeOrganizer: AI-Driven B2B Content Aggregation Platform (Architecture \& Design)}} 
   {Architected a SaaS solution for automated market intelligence extraction and analysis.}
   {2026.01}
   {} 
@@ -431,7 +460,7 @@ Attention to Detail} \\
 \resumeItemListEnd
 \vspace{-1mm}
 \resumeProject
-  {Relationship K-Line (AI-Powered Data Visualization Web App)}
+  {\href{https://maxzhangg.github.io/relationship-k-line/}{Relationship K-Line (AI-Powered Data Visualization Web App)}}
   {Developed a bilingual React-based web app with AI integration and interactive charts.}
   {2025.01}
 
@@ -444,7 +473,7 @@ Attention to Detail} \\
 \resumeItemListEnd
 \vspace{-1mm}
 \resumeProject
-  {Tarot Drawing Website with AI Reading} % Project Name
+  {\href{https://maxzhangg.github.io/tarot/}{Tarot Drawing Website with AI Reading}} % Project Name
   {Developed an interactive Tarot reading website using React and DeepSeek-powered chatbot.} % Project Description
   {2025.07} % Event Dates
 
@@ -455,7 +484,7 @@ Attention to Detail} \\
   \vspace{-1mm}
 
     \resumeProject
-  {Style Max - Fashion Recommendation Platform} % Project Name
+  {\href{https://maxzhangg.github.io/Style-Max-Demo/}{Style Max - Fashion Recommendation Platform}} % Project Name
   {Prototyped a fashion assistant using React and DeepSeek API, featuring multi-page UI and chatbot integration.} % Project Description
   {2025.05 -- 2025.07} % Event Dates
 
@@ -465,7 +494,7 @@ Attention to Detail} \\
   \resumeItemListEnd
   \vspace{-1mm}
 \resumeProject
-    {Automated Test Generation with Gen-AI under Pytest} % Project Name
+    {\href{https://github.com/maxzhangg/ai-generated-pytest-for-sorting}{Automated Test Generation with Gen-AI under Pytest}} % Project Name
   {Generated Pytest test cases for Python programs using gen-ai.} % Project Description
   {2025.04} % Event Dates
 
@@ -523,4 +552,5 @@ Attention to Detail} \\
 %\includepdf[pages=1]{transcript_neepu.pdf}
 
 %-------------------------------------------
-\end{document}`;
+\end{document}
+`;
