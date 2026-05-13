@@ -42,13 +42,6 @@ export const PROMPT_INSTRUCTIONS = String.raw`# Role
 - **符号转义**: 检查 \`&\`, \`%\`, \`_\`, \`$\`, \`#\`，必须加反斜杠转义（如 \`\&\`）。
 - **编译检查**: 确保花括号 \`{}\` 闭合。
 
-## 4. 空间微调 (Space Management)
-- 如果 **实习 + 3个项目** 导致内容略微超出一页：
-  1. **精简 Skills 部分**: 仅保留与 JD 高度相关的技能关键词，删除次要技能。
-  2. **精简项目描述**: 在不减少项目数量（保持3个）的前提下，缩短 \`\resumeItem\` 的句子长度。
-
----
-
 # ✉️ PART B: Cover Letter Generation (求职信生成)
 
 请根据 JD 和 简历，撰写一封求职信，并**严格套用**以下的 Deedy 模板格式输出。
@@ -398,6 +391,26 @@ Attention to Detail} \\
 %-----------EXPERIENCE-----------------
 \section{\textbf{Experience}}
   \resumeSubHeadingListStart
+    \resumeSubheading
+  {QA Tester}{Remote}
+  {\href{https://www.weex.com/}{Weex Global}}{Mar 2026 - present}
+  \vspace{-2.0mm}
+  \resumeItemListStart
+
+  \item Owned end-to-end testing for a multi-page withdrawal analysis dashboard, ensuring data accuracy and release quality
+
+\item Designed and executed test strategies covering \textbf{manual and automated testing}, including UI workflows, data validation, and edge cases
+
+\item Developed Playwright-based automation (Python) to simulate user actions (filter, search, export) and enable automated UI testing and data extraction
+
+\item Built data reconciliation workflows by comparing exported UI data with backend SQL queries, ensuring cross-source consistency
+
+\item Performed root cause analysis on data discrepancies (e.g., 100.65 USDT mismatch) by tracing transaction-level logic and validating risk processing
+
+\item Identified \textbf{40+} defects, reported risks early, and collaborated with product and engineering in a fast-paced Agile environment
+  \resumeItemListEnd
+
+      \vspace{-3mm}
   \resumeSubheading
       {Night-time Technical Support}{Remote}
       {\href{https://github.com/CasualHackathon/SPARK-AI-Hackathon}{SPARK AI Hackathon}}{Jan 2026 - Feb 2026}
