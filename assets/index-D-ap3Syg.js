@@ -521,7 +521,7 @@ Attention to Detail} \\
 \vspace{-2mm}
 \resumeSubHeadingListStart
 \resumeProject
-  {\href{https://github.com/maxzhangg/Oracle-s-Choice}{Oracle's Choice: SpoonOS Graph Agent–Powered Dual-Mode Oracle Application}} 
+  {\href{https://oracle-s-choice.vercel.app/}{Oracle's Choice: SpoonOS Graph Agent–Powered Dual-Mode Oracle Application}} 
   {Designed an explainable AI agent system supporting empathetic chat and deterministic divination workflows.}
   {2026.01}
   {} 
