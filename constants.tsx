@@ -10,7 +10,7 @@ export const PROMPT_INSTRUCTIONS = String.raw`# Role
 3. **Master Resume Code** (包含我所有经历的 LaTeX 源代码，这是唯一的“事实数据库”)。
 
 你的任务是利用你的招聘经验，为我生成两份文件：
-1. 一份**针对该职位**的 1 页简历（Resume）。
+1. 一份**针对该职位**的 2 页简历（Resume）。
 2. 一份配套的求职信（Cover Letter）。
 
 ---
@@ -18,15 +18,14 @@ export const PROMPT_INSTRUCTIONS = String.raw`# Role
 # 🚀 PART A: Resume Optimization (简历优化)
 
 ## 1. 布局策略 (Layout Strategy) -> "Perfect Fit"
-- **目标**: 输出内容必须**完美填充 1 页 A4 纸**。
 - **实习经历 (Internship)**: 【🚫绝对禁止修改】保留所有实习经历的代码块（包括标题、时间、描述），**一字不改**。
 - **教育经历 (Education)**: 【🚫绝对禁止修改】保留学校、学位、时间等信息，不要删减。
-- **项目经历 (Projects)**: 【🎯锁定 3 个】
-  - 根据 JD 的核心需求，挑选出 **3 个** 最相关的项目。
+- **项目经历 (Projects)**: 【🎯锁定 5 个】
+  - 根据 JD 的核心需求，挑选出 **5 个** 最相关的项目。
   - **其余项目全部删除**。
 
 ## 2. 内容优化 (Content Optimization) -> "Description Only"
-你对选中的 3 个项目拥有“部分编辑权”，请严格遵守以下红线：
+你对选中的 5 个项目拥有“部分编辑权”，请严格遵守以下红线：
 - **❌ 禁止修改 (DO NOT TOUCH):**
   - **项目名称 (Project Title)**: 必须保持原样。
   - **项目时间/链接**: 必须保持原样。
@@ -446,7 +445,7 @@ Attention to Detail} \\
 \vspace{-2mm}
 \resumeSubHeadingListStart
 \resumeProject
-  {\href{https://github.com/maxzhangg/Oracle-s-Choice}{Oracle's Choice: SpoonOS Graph Agent–Powered Dual-Mode Oracle Application}} 
+  {\href{https://oracle-s-choice.vercel.app/}{Oracle's Choice: SpoonOS Graph Agent–Powered Dual-Mode Oracle Application}} 
   {Designed an explainable AI agent system supporting empathetic chat and deterministic divination workflows.}
   {2026.01}
   {} 
